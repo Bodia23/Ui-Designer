@@ -22,6 +22,7 @@ dd {
 ul,
 ol {
   list-style: none;
+  list-style-position: inside;
 } /* Set core root defaults */
 html:focus-within {
   scroll-behavior: smooth;
@@ -46,6 +47,12 @@ select {
   font: inherit;
 }
 
+button:hover {
+  cursor: pointer;
+  opacity: 0.9;
+  transform: scale(0.95);
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -62,23 +69,42 @@ body {
 }
 
 /* nav section */
-
 .navigation {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
 }
 
-.nav-list {
-  display: flex;
-  flex-direction: row;
-  gap: 60px;
+.navigation.active {
+  display: none;
+}
+
+.nav-list,
+.burger-nav-list {
   list-style: none;
+  gap: 60px;
+  display: flex;
+}
+
+.burger-nav-list {
+  flex-direction: column;
+  gap: 30px;
+}
+
+.nav-list > li,
+.burger-nav-list > li {
   font-family: "Oswald";
   font-size: 17px;
   font-weight: 600;
+  text-align: center;
+  padding: 6px 16px;
+}
+
+.nav-list > li:hover,
+.burger-nav-list > li:hover {
+  background-color: rgba(128, 128, 128, 0.301);
+  border-radius: 10px;
 }
 
 .sing-in-button > button {
@@ -97,8 +123,35 @@ body {
   border: none;
 }
 
-/* ui-beginers section */
+.menu-button.active {
+  display: none;
+}
 
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+}
+
+.burger.active {
+  display: flex;
+}
+
+.burger-close-button {
+  font-size: 36px;
+  border: none;
+  background-color: transparent;
+  text-align: center;
+  font-family: "Oswald";
+  font-weight: 600;
+  color: #000;
+  line-height: 20px;
+}
+
+/* ui-beginers section */
 .inform {
   display: flex;
   flex-direction: column;
@@ -139,14 +192,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  align-items: center;
-}
-
-.first-parag {
-  font-family: "Krub";
-  font-weight: 600;
-  font-size: 21px;
-  color: #000;
+  padding: 5px;
 }
 
 .small-text > p {
@@ -154,6 +200,10 @@ body {
   font-weight: 600;
   font-size: 15px;
   color: #000;
+}
+
+.first-parag {
+  font-size: 21px;
 }
 
 .ui-buttons {
@@ -205,14 +255,11 @@ body {
 
 .pro-designer > ul > li {
   list-style-type: square;
-}
-
-.pro-designer > ul > li > p {
   font-family: "Krub";
   font-weight: bold;
   font-size: 16px;
   color: #000;
-  margin: 0;
+  text-wrap: nowrap;
   max-width: 100%;
 }
 
@@ -274,12 +321,14 @@ body {
 
 .about-content {
   position: relative;
+  padding: 10px;
 }
 
 .ui-vertical {
   position: absolute;
   top: 23%;
   right: 31.5%;
+  left: 31%;
   justify-content: center;
   z-index: 50;
 }
@@ -288,7 +337,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 70px;
+  padding: 20px;
 }
 
 .photo {
@@ -346,6 +395,7 @@ body {
 .start-lern {
   display: flex;
   justify-content: space-between;
+  padding: 10px;
 }
 
 .ui-text {
@@ -392,22 +442,22 @@ body {
 }
 
 .level-one {
-  max-width: 40%;
-  border-radius: 25px;
   border: 3px solid #f1f1f1;
-  padding: 10px;
   background-color: rgba(255, 255, 255, 1);
-  margin: 0 auto;
 }
 
 .level-two {
-  max-width: 40%;
   border: 3px solid #a983f9;
-  border-radius: 25px;
-  padding: 10px;
-  margin: 0 auto;
 }
 
+.level-one,
+.level-two {
+  max-width: 40%;
+  border-radius: 25px;
+  margin: 0 auto;
+  padding: 10px;
+  min-width: 186px;
+}
 .level-one > h1,
 .level-two > h1 {
   text-align: center;
@@ -447,6 +497,7 @@ body {
 .how-it-works-content {
   display: flex;
   align-items: center;
+  padding: 30px;
 }
 
 .hitw-text-ui {
@@ -523,7 +574,7 @@ body {
 .how-it-works-ui {
   position: absolute;
   top: 5%;
-  right: -13%;
+  right: 0%;
   z-index: 50;
 }
 
@@ -537,14 +588,11 @@ body {
 
 .never-stop-learning > ul > li {
   list-style-type: square;
-}
-
-.never-stop-learning > ul > li > p {
   font-family: "Krub";
   font-weight: bold;
   font-size: 16px;
   color: #000;
-  margin: 0;
+  text-wrap: nowrap;
 }
 
 /*why-us-section*/
@@ -627,14 +675,11 @@ body {
 
 .never-stop-learnings > ul > li {
   list-style-type: square;
-}
-
-.never-stop-learnings > ul > li > p {
   font-family: "Krub";
   font-weight: bold;
   font-size: 16px;
   color: #000;
-  margin: 0;
+  text-wrap: nowrap;
 }
 
 /*register-now section*/
@@ -649,6 +694,7 @@ body {
   display: flex;
   flex-direction: column;
   width: 50%;
+  text-align: center;
 }
 
 .register-now-title > h1 {
@@ -656,7 +702,6 @@ body {
   font-weight: bold;
   font-size: 53px;
   color: #fff;
-  margin: 0 auto;
 }
 
 .register-now-title > p {
@@ -710,7 +755,7 @@ body {
 .reg-arrow {
   max-width: 30%;
   position: absolute;
-  top: 85%;
+  bottom: 1%;
   right: 3%;
   border: 3px solid #fff;
   padding: 10px;
@@ -722,7 +767,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 0 auto;
+  padding: 20px;
 }
 
 .what-user-think-title {
@@ -751,14 +796,11 @@ body {
 
 .pro-designers > ul > li {
   list-style-type: square;
-}
-
-.pro-designers > ul > li > p {
-  margin: 0;
   font-family: "Krub";
   font-weight: bold;
   font-size: 16px;
   color: #000;
+  text-wrap: nowrap;
 }
 
 .user-image {
@@ -769,12 +811,17 @@ body {
   width: 100%;
   filter: grayscale(1);
   border-radius: 50%;
+  min-width: 83px;
+  min-height: 83px;
+  max-width: 126px;
+  max-height: 126px;
 }
 
 .users-coment {
   display: flex;
   flex-wrap: wrap;
   row-gap: 20px;
+  padding: 10px;
 }
 
 .user-coments {
@@ -819,6 +866,7 @@ body {
 
 .stars {
   padding: 15px;
+  display: flex;
 }
 
 /*subscribe-section*/
@@ -828,6 +876,7 @@ body {
   align-items: center;
   justify-content: space-between;
   margin-top: 80px;
+  padding: 10px;
 }
 
 .men-img {
@@ -1024,6 +1073,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  padding: 20px 10px;
 }
 
 .sochial-media-icons {
@@ -1037,7 +1087,6 @@ body {
   font-weight: bold;
   font-size: 25px;
   color: #f1f1f1;
-  margin-top: 40px;
 }
 
 @media (max-width: 767px) {
@@ -1057,9 +1106,6 @@ body {
     flex-direction: column;
     padding: 10px;
   }
-  nav {
-    display: none;
-  }
 
   .menu-button {
     display: block;
@@ -1073,16 +1119,12 @@ body {
     display: none;
   }
 
+  nav {
+    display: none;
+  }
+
   .nav-list.active {
     display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    z-index: 10;
   }
 
   .text-and-photo {
@@ -1091,10 +1133,12 @@ body {
 
   .ui-vertical {
     right: 10%;
+    left: 10%;
   }
 
   .card {
     flex-direction: column;
+    padding: 10px;
   }
 
   .card-level {
@@ -1110,8 +1154,14 @@ body {
     flex-direction: column;
   }
 
+  .why-us-ui {
+    left: 10%;
+    right: 50%;
+  }
+
   .how-it-works-content {
     flex-direction: column;
+    padding: 10px;
   }
 
   .parag-text {
@@ -1139,6 +1189,7 @@ body {
 
   .register-now-content {
     flex-direction: column;
+    padding: 10px;
   }
 
   .register-now-title {
@@ -1146,13 +1197,11 @@ body {
   }
 
   .register-now-title > p {
-    width: 100%;
-    margin: 0;
     text-align: center;
   }
 
   .reg-arrow {
-    top: 80%;
+    bottom: 1%;
     right: 1%;
   }
 
@@ -1169,7 +1218,7 @@ body {
   }
 
   .info > p {
-    max-width: 70%;
+    max-width: 100%;
   }
 
   .subscribe-content-ui {
@@ -1190,6 +1239,9 @@ body {
 
   .footer-content {
     flex-direction: column;
+    text-align: center;
+    padding: 20px 10px;
+    gap: 20px;
   }
 
   .sing-up {

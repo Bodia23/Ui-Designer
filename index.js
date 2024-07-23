@@ -1,8 +1,18 @@
 const menuButton = document.querySelector(".menu-button");
-const navList = document.querySelector(".nav-list");
+const navigation = document.querySelector(".navigation");
+const burger = document.querySelector(".burger");
+const body = document.querySelector("body");
 
-menuButton.addEventListener("click", () => {
-  // Переключаем класс `active` для списка и кнопки
-  navList.classList.toggle("active");
+const burgerOpenButton = () => {
+  navigation.classList.toggle("active");
   menuButton.classList.toggle("active");
-});
+  burger.classList.toggle("active");
+  body.style.overflow = "hidden";
+};
+
+const burgerCloseButton = () => {
+  navigation.classList.toggle("active");
+  menuButton.classList.toggle("active");
+  burger.classList.toggle("active");
+  body.style.overflow = "unset";
+};
