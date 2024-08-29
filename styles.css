@@ -27,41 +27,17 @@ ol {
 html:focus-within {
   scroll-behavior: smooth;
 } /* Set core body defaults */
-body {
-  min-height: 100vh;
-  text-rendering: optimizeSpeed;
-  line-height: 1.5;
-} /* A elements that don't have a class get default styles */
-a:not([class]) {
-  text-decoration-skip-ink: auto;
-} /* Make images easier to work with */
 img,
 picture {
   max-width: 100%;
   display: block;
-} /* Inherit fonts for inputs and buttons */
-input,
-button,
-textarea,
-select {
-  font: inherit;
-}
-
-button:hover {
-  cursor: pointer;
-  opacity: 0.9;
-  transform: scale(0.95);
-}
-
-body {
-  margin: 0;
-  padding: 0;
 }
 
 .container {
   max-width: 1440px;
   position: relative;
   margin: 0 auto;
+  overflow: hidden;
 }
 
 .reg-bacg {
@@ -107,7 +83,8 @@ body {
   border-radius: 10px;
 }
 
-.sing-in-button > button {
+.sing-in-button > button,
+.burger-sing-in-button > button {
   width: 100px;
   font-family: "Oswald";
   font-size: 17px;
@@ -115,6 +92,7 @@ body {
   background-color: #000;
   color: #f1f1f1;
   text-align: center;
+  border: none;
 }
 
 .menu-button {
@@ -1136,6 +1114,10 @@ body {
     left: 10%;
   }
 
+  .ui-vertical > img {
+    max-width: 90%;
+  }
+
   .card {
     flex-direction: column;
     padding: 10px;
@@ -1246,5 +1228,86 @@ body {
 
   .sing-up {
     padding: 15px;
+  }
+
+  .small-text {
+    text-align: center;
+    max-width: 70%;
+    margin: 0 auto;
+  }
+
+  .ui-text {
+    justify-content: center;
+  }
+
+  .hitw-text-ui {
+    justify-content: center;
+  }
+
+  .parag-text > p {
+    text-align: center;
+  }
+
+  .why-us-ui {
+    left: 25%;
+    right: 50%;
+  }
+
+  .why-us-ui > img {
+    max-width: 200%;
+  }
+
+  .dot {
+    position: absolute;
+    right: -120%;
+    top: 80%;
+  }
+
+  .start-lerning {
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+  }
+
+  .sing-in-button {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1020px) {
+  .ui {
+    top: 0;
+    right: -80%;
+  }
+
+  .ui > img {
+    max-width: 60%;
+  }
+
+  .mans > img {
+    max-width: 150%;
+  }
+
+  .how-it-works-ui > img {
+    max-width: 70%;
+  }
+
+  .how-it-works-ui {
+    right: -15%;
+  }
+
+  .subscribe-content-ui > img {
+    max-width: 76%;
+  }
+}
+
+@media (min-width: 1020px) and (max-width: 1280px) {
+  .ui {
+    top: -2%;
+    right: -46%;
+  }
+
+  .ui > img {
+    max-width: 75%;
   }
 }
