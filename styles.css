@@ -27,11 +27,6 @@ ol {
 html:focus-within {
   scroll-behavior: smooth;
 } /* Set core body defaults */
-img,
-picture {
-  max-width: 100%;
-  display: block;
-}
 
 .container {
   max-width: 1440px;
@@ -1068,6 +1063,12 @@ picture {
 }
 
 @media (max-width: 767px) {
+  img,
+  picture {
+    display: block;
+    max-width: 100%;
+  }
+
   .form {
     margin: 0;
   }
@@ -1261,6 +1262,7 @@ picture {
     position: absolute;
     right: -120%;
     top: 80%;
+    display: none;
   }
 
   .start-lerning {
@@ -1301,13 +1303,9 @@ picture {
   }
 }
 
-@media (min-width: 1020px) and (max-width: 1280px) {
+@media (min-width: 1021px) and (max-width: 1280px) {
   .ui {
-    top: -2%;
-    right: -46%;
-  }
-
-  .ui > img {
-    max-width: 75%;
+    top: 0;
+    right: -50%;
   }
 }
